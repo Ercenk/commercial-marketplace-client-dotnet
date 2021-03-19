@@ -40,7 +40,7 @@ jobs:
         $refs/tags/: ""
 
     - name: Package Library
-      run: dotnet pack src/Microsoft.Marketplace.csproj --configuration ${{ env.Configuration }} -o nupkg -p:PackageVersion=${{ steps.sub.outputs.result }} -p:PackageReleaseNotes='${{ GITHUB.event.release.body }}'
+      run: dotnet pack src/Microsoft.Marketplace.csproj --configuration ${{ env.Configuration }} -o nupkg -p:PackageVersion=${{ steps.sub.outputs.result }} -p:PackageReleaseNotes='${{ GITHUB.event.release.body }}' -p:PackageId='Ercenk.Microsoft.Marketplace' -p:Authors='Ercenk Keresteci'
     
      # Need to extract the exact name of the nuget package since Upload-Release-Asset does not support wildcard asset names (https://github.com/actions/upload-release-asset/issues/47)
     - name: Get Name of Artifact
