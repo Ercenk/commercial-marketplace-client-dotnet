@@ -37,7 +37,7 @@ jobs:
       id: sub
       with:
         _input-text: $${{ GITHUB.REF }}
-        $refs/tags/v: ""
+        $refs/tags/: ""
 
     - name: Package Library
       run: dotnet pack src/Microsoft.Marketplace.csproj --configuration ${{ env.Configuration }} -o nupkg -p:PackageVersion=${{ steps.sub.outputs.result }} -p:PackageReleaseNotes='${{ GITHUB.event.release.body }}'
